@@ -59,6 +59,11 @@ CometChat Android Demo app (built using **CometChat Pro**) is a fully functional
        `val APP_ID: String = "XXXXXXXXX"`
 
        `val API_KEY: String  = "XXXXXXXXX"`
+       
+  - To Run the app you also need to include **google-services.json** from your firebase console ,To connect the app to     
+    firebase follow the instruction below :
+     
+      [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup)
 
 ## Note
 
