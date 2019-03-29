@@ -59,9 +59,6 @@ class MessageRepository {
 
                         Log.d(TAG, "messageRequest onSuccess: ${p0?.size}")
 
-//                        for (baseMessage in p0!!){
-//                            Log.d(TAG,"onSuccess: "+baseMessage.id)
-//                        }
                     }
 
                     override fun onError(p0: CometChatException?) {
@@ -150,16 +147,13 @@ class MessageRepository {
                         if (context is LocationActivity)
                             context.finish()
                     }
-
                 }
 
             }
-
             override fun onError(p0: CometChatException?) {
                 Toast.makeText(CometChatPro.applicationContext(), p0?.message, Toast.LENGTH_SHORT).show()
 
             }
-
 
         })
     }

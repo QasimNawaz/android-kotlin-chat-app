@@ -24,9 +24,7 @@ import com.cometchat.pro.constants.CometChatConstants
 import com.cometchat.pro.core.CometChat
 import com.cometchat.pro.exceptions.CometChatException
 import com.cometchat.pro.models.User
-import com.google.firebase.messaging.FirebaseMessaging
 import com.inscripts.cometchatpulse.Adapter.AutoCompleteAdapter
-import com.inscripts.cometchatpulse.Fcm.FirebaseService
 import com.inscripts.cometchatpulse.Pojo.GroupOption
 import com.inscripts.cometchatpulse.R
 import com.inscripts.cometchatpulse.StringContract
@@ -116,7 +114,6 @@ public class LoginActivity : AppCompatActivity() {
             CometChat.login(uid.trim(), StringContract.AppDetails.API_KEY, object : CometChat.CallbackListener<User>() {
                 override fun onSuccess(p0: User?) {
                     startActivity()
-                     FirebaseService.subscribeToUser(p0?.uid)
                     Log.d(TAG,"login: ${StringContract.AppDetails.APP_ID}_user_${p0?.uid}")
 
                 }

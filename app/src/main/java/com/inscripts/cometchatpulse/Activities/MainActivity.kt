@@ -29,7 +29,6 @@ import com.cometchat.pro.exceptions.CometChatException
 import com.cometchat.pro.helpers.Logger
 import com.cometchat.pro.models.Group
 import com.cometchat.pro.models.User
-import com.inscripts.cometchatpulse.Fcm.FirebaseService
 import com.inscripts.cometchatpulse.Fragment.ContactListFragment
 import com.inscripts.cometchatpulse.Fragment.GroupFragment
 import com.inscripts.cometchatpulse.Fragment.GroupListFragment
@@ -83,7 +82,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         groupChatViewModel = ViewModelProviders.of(this).get(GroupChatViewModel::class.java)
         oneToOneChatViewModel = ViewModelProviders.of(this).get(OnetoOneViewModel::class.java)
 
-        FirebaseService.clearMessageList()
 
         setSupportActionBar(toolbar)
         supportActionBar?.title = ""
@@ -393,7 +391,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onResume() {
         super.onResume()
         Log.d(TAG,"onResume: ")
-        FirebaseService.clearMessageList()
         groupChatViewModel.addGroupEventListener(StringContract.ListenerName.GROUP_EVENT_LISTENER)
         oneToOneChatViewModel.addCallListener(this, TAG, null)
     }

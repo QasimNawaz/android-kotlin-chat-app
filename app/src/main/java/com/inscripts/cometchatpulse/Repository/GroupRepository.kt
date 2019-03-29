@@ -20,7 +20,6 @@ import com.inscripts.cometchatpulse.Activities.CreateGroupActivity
 import com.inscripts.cometchatpulse.Activities.GroupDetailActivity
 import com.inscripts.cometchatpulse.Activities.MainActivity
 import com.inscripts.cometchatpulse.CometChatPro
-import com.inscripts.cometchatpulse.Fcm.FirebaseService
 import com.inscripts.cometchatpulse.Fragment.MemberFragment
 import java.lang.Exception
 
@@ -63,7 +62,6 @@ class GroupRepository {
                         groupList.value = groupListMutable
                         shimmerFrameLayout?.stopShimmer()
                         shimmerFrameLayout?.visibility=View.GONE
-                        p0?.let { FirebaseService.subscribeToGroup(it) }
 
                     }
 
@@ -79,7 +77,6 @@ class GroupRepository {
                     override fun onSuccess(p0: List<Group>?) {
                         p0?.let { groupListMutable.addAll(it) }
                         groupList.value = groupListMutable
-                        p0?.let { FirebaseService.subscribeToGroup(it) }
                     }
 
                     override fun onError(p0: CometChatException?) {
@@ -96,7 +93,6 @@ class GroupRepository {
     fun getGroup(guid: String) {
             CometChat.getGroup(guid, object : CometChat.CallbackListener<Group>() {
                 override fun onSuccess(p0: Group?) {
-
                    Log.d("onSuccess",p0?.toString())
 
                 }

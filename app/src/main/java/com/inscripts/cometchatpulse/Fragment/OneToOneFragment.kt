@@ -53,11 +53,8 @@ import org.json.JSONObject
 import java.io.File
 import java.io.IOException
 import kotlin.coroutines.CoroutineContext
-import kotlin.random.Random
-
 
 class OneToOneFragment : Fragment(), View.OnClickListener, RecordListener, ActionMode.Callback, OnClickEvent {
-
 
     companion object {
         const val ARG_PARAM1 = "param1"
@@ -65,8 +62,7 @@ class OneToOneFragment : Fragment(), View.OnClickListener, RecordListener, Actio
         private val TAG = "OneToOneFragment"
         var isReply: Boolean = false
         var metaData: JSONObject? = JSONObject()
-        public  var currentId:String?=null
-
+        var currentId:String?=null
     }
 
     private lateinit var linearLayoutManager: LinearLayoutManager
@@ -127,8 +123,7 @@ class OneToOneFragment : Fragment(), View.OnClickListener, RecordListener, Actio
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_contact_detail,
-                container, false)
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_contact_detail,container, false)
 
         setHasOptionsMenu(true)
 
@@ -198,6 +193,7 @@ class OneToOneFragment : Fragment(), View.OnClickListener, RecordListener, Actio
         binding.subTitle.isSelected = true
 
         binding.contactPic.borderColor = StringContract.Color.white
+
         binding.contactPic.borderWidth = 2
 
         binding.messageBox?.buttonSendMessage?.setOnClickListener(this)
